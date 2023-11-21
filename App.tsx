@@ -6,9 +6,14 @@ import Home from "./libs/screens/App/Home";
 import ChatSolo from "./libs/screens/App/Chat-solo";
 import ChatDuo from "./libs/screens/App/Chat-duo";
 import Profile from "./libs/screens/App/Profile";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { loadColors } from "./constants/Colors";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebase";
+import { getIsAnonAsync } from "./firebase/handleAnonRegLog";
+import { IsAnonContext } from "./contexts/IsAnonContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -95,19 +100,35 @@ const AppStackAnonymously = () => {
 };
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isAnon, setIsAnon] = useState(true);
+
   useEffect(() => {
+    // AsyncStorage.clear();
+
     loadColors();
+
+    getIsAnonAsync().then((isUserAnon) => setIsAnon(isUserAnon === "true"));
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
   }, []);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isAnonymous, setIsAnoymous] = useState(true);
   return (
-    <NavigationContainer>
-      {!isLoggedIn
-        ? AuthStack()
-        : isAnonymous
+    // @ts-ignore
+    <IsAnonContext.Provider value={{ isAnon, setIsAnon }}>
+      <NavigationContainer>
+        {isAnon
           ? AppStackAnonymously()
-          : AppStackNonAnonymously()}
-    </NavigationContainer>
+          : !isLoggedIn
+            ? AuthStack()
+            : AppStackNonAnonymously()}
+      </NavigationContainer>
+    </IsAnonContext.Provider>
   );
 }
