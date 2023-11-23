@@ -27,7 +27,9 @@ function Login() {
       />
       <TouchableOpacity
         onPress={() => {
-          handleLogin({ email: email, password: pass });
+          setIsAnonAsync({ isUserAnon: false }).then(() =>
+            handleLogin({ email: email, password: pass }),
+          );
         }}
       >
         <Text>Log in</Text>
@@ -38,6 +40,7 @@ function Login() {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
+          // we set the async storage value that holds if the user is anon to TRUE
           setIsAnonAsync({ isUserAnon: true })
             .then(() => setIsAnon(true))
             .then(() => handleAnon())

@@ -14,6 +14,7 @@ function Register() {
   const [inputedSecCode, setInputedSecCode] = useState("");
   const [shouldShowSecurity, setShouldShowSecurity] = useState(false);
 
+  // we create a security code that the user will receive via email
   useEffect(() => {
     setSecurityCode(
       (
@@ -56,8 +57,8 @@ function Register() {
       {!shouldShowSecurity && (
         <TouchableOpacity
           onPress={() => {
-            if (pass === repass) {
-              console.log(securityCode);
+            if (pass === repass && pass !== "") {
+              // if the passwords match we create the body that will be sent to the email api
               let data = {
                 service_id: ApiConstants.email_service_id,
                 template_id: ApiConstants.email_template_id,
@@ -67,6 +68,7 @@ function Register() {
                   body: securityCode,
                 },
               };
+              // we send the email
               fetch("https://api.emailjs.com/api/v1.0/email/send", {
                 method: "POST",
                 headers: {
@@ -76,6 +78,7 @@ function Register() {
                 body: JSON.stringify(data),
               })
                 .then((res) => {
+                  // after we send the email we show the security text input
                   setShouldShowSecurity(true);
                   console.log(
                     "Send security code: " + securityCode + " with success",
@@ -100,6 +103,7 @@ function Register() {
           />
           <TouchableOpacity
             onPress={() => {
+              // if the user inputs the same security code as in the email
               if (inputedSecCode === securityCode) {
                 handleRegister({
                   email: email,

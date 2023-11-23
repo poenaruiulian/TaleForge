@@ -52,12 +52,15 @@ export const getAnonIdAsync = async () => {
 };
 
 export const handleAnon = async () => {
+  // we create an entrance in firestore to have an id for the anon users
   await addDoc(collection(firestore, "anon_users"), {
     joining_date: new Date().toString(),
   }).then(async (anonUserCredential) => {
+    // the anon id is used to create the id for the chatbot we are going to use
     await addDoc(collection(firestore, "bot_chats"), {
       "user-id": anonUserCredential.id,
     }).then((documentRef) => {
+      // the with the two ids we create an anon user in the RTDB
       const userData = {
         username: "",
         email: "",
@@ -72,7 +75,9 @@ export const handleAnon = async () => {
         dateOfJoining: "",
       };
       const usersRef = ref(database, "users/" + anonUserCredential.id);
+      // after creating the user we add it to RTDB
       set(usersRef, userData).then(() =>
+        // and set the async storage that holds the anon users id
         setAnonIdAsync({ userAnonId: anonUserCredential.id }).then(() =>
           console.log("Success register of " + anonUserCredential.id + " anon"),
         ),
