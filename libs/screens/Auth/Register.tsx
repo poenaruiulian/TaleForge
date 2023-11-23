@@ -59,7 +59,7 @@ function Register() {
           onPress={() => {
             if (pass === repass && pass !== "") {
               // if the passwords match we create the body that will be sent to the email api
-              let data = {
+              let emailData = {
                 service_id: ApiConstants.email_service_id,
                 template_id: ApiConstants.email_template_id,
                 user_id: ApiConstants.email_public_key,
@@ -75,7 +75,7 @@ function Register() {
                   "Content-Type": "application/json",
                   // 'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(emailData),
               })
                 .then((res) => {
                   // after we send the email we show the security text input
