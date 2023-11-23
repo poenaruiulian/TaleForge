@@ -19,6 +19,9 @@ export const setIsAnonAsync = async ({
     console.log(err);
   }
 };
+
+// this function saves the id of the anon user,
+// should be null if the user is not anon logged
 export const setAnonIdAsync = async ({
   userAnonId,
 }: {
@@ -66,11 +69,11 @@ export const handleAnon = async () => {
         email: "",
         colorOfChat: "#F9E0BB",
         userID: "",
-        chatWithBotID: documentRef.id,
+        soloRoomID: documentRef.id,
         anonId: anonUserCredential.id,
-        listOfSoryroomsCreatedTotal: [],
-        listOfStoryroomsCurrentlyOpened: [],
-        listOfStoryroomsFinished: [],
+        listOfStoryroomsCreatedTotal: [0],
+        listOfStoryroomsCurrentlyOpened: [0],
+        listOfStoryroomsFinished: [0],
         dateOfAccount: new Date().toString(),
         dateOfJoining: "",
       };
@@ -78,9 +81,20 @@ export const handleAnon = async () => {
       // after creating the user we add it to RTDB
       set(usersRef, userData).then(() =>
         // and set the async storage that holds the anon users id
-        setAnonIdAsync({ userAnonId: anonUserCredential.id }).then(() =>
-          console.log("Success register of " + anonUserCredential.id + " anon"),
-        ),
+        setAnonIdAsync({ userAnonId: anonUserCredential.id }).then(() => {
+          // we create an entrance in the RTDB for the solo-chat room of the user
+          const botsRef = ref(database, "solo-rooms/" + documentRef.id);
+          const botData = {
+            soloRoomID: documentRef.id,
+            botsMessages: [0],
+            userMessages: [0],
+          };
+          set(botsRef, botData).then(() =>
+            console.log(
+              "Register with success user ANON:" + anonUserCredential.id,
+            ),
+          );
+        }),
       );
     });
   });
