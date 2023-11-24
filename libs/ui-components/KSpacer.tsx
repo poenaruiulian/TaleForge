@@ -1,8 +1,9 @@
 import { View, Text } from "react-native";
 
-export const KSpacer = ({ h = 10 }) => {
+export const KSpacer = ({ h = 10 }: { h: number | string }) => {
   return (
-    <View style={{ height: 10 }}>
+    // @ts-ignore
+    <View style={{ height: h }}>
       <Text></Text>
     </View>
   );

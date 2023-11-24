@@ -6,9 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase/handleAnonRegLog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/handleAnonRegLog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase/handleRegister.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/handleRegister.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/Colors.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Colors.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-solo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-solo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/Auth/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/screens/Auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/Auth/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KSpacer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KSpacer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +57,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "TASK-12-bot-entrance-in-firebase",
-    "last_opened_file_path": "/Users/poe/TaleForge",
+    "git-widget-placeholder": "TASK-12-header",
+    "last_opened_file_path": "/Users/poe/WebstormProjects/TaleForge/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +71,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$" />

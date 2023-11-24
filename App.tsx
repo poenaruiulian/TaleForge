@@ -14,9 +14,21 @@ import { auth } from "./firebase/firebase";
 import { getIsAnonAsync } from "./firebase/handleAnonRegLog";
 import { IsAnonContext } from "./contexts/IsAnonContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFonts } from "expo-font";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+
+import { faHome as fasHome } from "@fortawesome/free-solid-svg-icons/faHome";
+import { faComment as fasComment } from "@fortawesome/free-solid-svg-icons/faComment";
+import { faComments as fasComments } from "@fortawesome/free-solid-svg-icons/faComments";
+import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+import { Colors } from "react-native-ui-lib";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+library.add(fasHome, fasComment, fasComments, fasUserCircle);
 
 const AuthStack = () => {
   return (
@@ -36,19 +48,57 @@ const AuthStack = () => {
 };
 const AppTabNonAnonymously = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: Colors.background1,
+          borderTopWidth: 0,
+          borderTopColor: "transparent",
+        },
+      }}
+    >
       <Tab.Screen
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesomeIcon
+              size={focused ? 35 : 28}
+              icon={fasHome}
+              color={focused ? Colors.secondary2 : Colors.secondary1}
+            />
+          ),
+        }}
         name={"Home"}
         component={Home}
       />
       <Tab.Screen
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesomeIcon
+              size={focused ? 35 : 28}
+              icon={fasComment}
+              color={focused ? Colors.secondary2 : Colors.secondary1}
+            />
+          ),
+        }}
         name={"ChatSolo"}
         component={ChatSolo}
       />
       <Tab.Screen
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesomeIcon
+              size={focused ? 35 : 28}
+              icon={fasComments}
+              color={focused ? Colors.secondary2 : Colors.secondary1}
+            />
+          ),
+        }}
         name={"ChatDuo"}
         component={ChatDuo}
       />
@@ -73,9 +123,27 @@ const AppStackNonAnonymously = () => {
 };
 const AppTabAnonymously = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: Colors.background1,
+          borderTopWidth: 0,
+          borderTopColor: "transparent",
+        },
+      }}
+    >
       <Tab.Screen
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ focused }) => (
+            <FontAwesomeIcon
+              size={focused ? 35 : 28}
+              icon={fasComment}
+              color={focused ? Colors.secondary2 : Colors.secondary1}
+            />
+          ),
+        }}
         name={"ChatSolo"}
         component={ChatSolo}
       />
@@ -102,7 +170,10 @@ const AppStackAnonymously = () => {
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isAnon, setIsAnon] = useState(true);
-
+  const [fontsLoaded] = useFonts({
+    "Raleway-SemiBold": require("./assets/fonts/Raleway-SemiBold.ttf"),
+    "Raleway-Medium": require("./assets/fonts/Raleway-Medium.ttf"),
+  });
   useEffect(() => {
     // AsyncStorage.clear();
 
