@@ -1,6 +1,7 @@
 import { KeyboardAvoidingView, ScrollView } from "react-native";
 import React from "react";
 import { Colors } from "react-native-ui-lib";
+import { useNavigation } from "@react-navigation/native";
 
 interface KContainerProps {
   children: React.ReactNode;
@@ -8,12 +9,11 @@ interface KContainerProps {
 const KContainer = (props: KContainerProps) => {
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: Colors.background }}
+      style={{ flex: 1, backgroundColor: Colors.background1 }}
     >
       <ScrollView
         contentContainerStyle={{
           flex: 1,
-          justifyContent: "center",
           alignItems: "center",
           backgroundColor: Colors.background,
         }}
