@@ -15,7 +15,7 @@ const KContainer = (props: KContainerProps) => {
     >
       <ScrollView
         contentContainerStyle={{
-          flex: 1,
+          flexGrow: 1,
           alignItems: "center",
           backgroundColor: Colors.background1,
         }}

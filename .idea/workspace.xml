@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KChatDuoStoryroom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KChatDuoStoryroom.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/ui-components/KHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/ui-components/KTextButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KTextButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KTag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KTag.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "TASK-5-create-storyroom-modal",
+    "git-widget-placeholder": "TASK-6-storyrooms-on-home",
     "last_opened_file_path": "/Users/poe/WebstormProjects/TaleForge/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

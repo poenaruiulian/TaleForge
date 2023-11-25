@@ -23,7 +23,10 @@ function ChatDuo() {
       if (snapshot.exists()) {
         let auxList = [];
         for (let key in snapshot.toJSON()) {
-          if (snapshot.toJSON()[key]["openerID"] === auth.currentUser.uid) {
+          if (
+            snapshot.toJSON()[key]["openerID"] === auth.currentUser.uid ||
+            snapshot.toJSON()[key]["joinerID"] === auth.currentUser.uid
+          ) {
             auxList.push(snapshot.toJSON()[key]);
           }
         }
@@ -50,14 +53,14 @@ function ChatDuo() {
             color: Colors.secondary2,
           }}
         >
-          Your Storyrooms
+          Your Storyrooms:
         </Text>
         <KSpacer h={20} />
         {
           // @ts-ignore
           userRooms.map((room) => (
             // @ts-ignore
-            <View style={{ with: "100%" }}>
+            <View style={{ with: "100%" }} key={room["storyroomID"]}>
               <KChatDuoStoryroom
                 title={room["title"]}
                 openerUsername={room["openerUsername"]}

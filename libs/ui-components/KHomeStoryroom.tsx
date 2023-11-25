@@ -8,20 +8,20 @@ import React from "react";
 import { Colors } from "react-native-ui-lib";
 import { KTag } from "./KTag";
 import { KSpacer } from "./KSpacer";
-export const KChatDuoStoryroom = ({
+export const KHomeStoryroom = ({
   title,
   openerUsername,
-  joinerUsername,
   numberOfDays,
   numberOfCharacters,
   listOfTags,
+  onPress,
 }: {
   title: string;
   openerUsername: string;
-  joinerUsername: string;
   numberOfDays: number;
   numberOfCharacters: number;
   listOfTags: string[];
+  onPress: () => void;
 }) => {
   const { height, width } = useWindowDimensions();
 
@@ -30,16 +30,17 @@ export const KChatDuoStoryroom = ({
       style={{
         width: width * 0.9,
         alignItems: "flex-start",
-        backgroundColor: Colors.tertiary2,
+        backgroundColor: Colors.secondary1,
         padding: 10,
         borderRadius: 10,
       }}
+      onPress={onPress}
     >
       <Text
         style={{
           fontSize: 16,
           fontFamily: "Raleway-Bold",
-          color: Colors.secondary2,
+          color: Colors.primary2,
           letterSpacing: 0.05,
         }}
       >
@@ -64,26 +65,20 @@ export const KChatDuoStoryroom = ({
       <View style={{ width: "100%", flexDirection: "row", gap: 10 }}>
         {listOfTags.map((tag) => (
           <KTag
-            key={tag}
+            key={listOfTags.indexOf(tag)}
             label={tag}
             onPress={() => {}}
-            bgColor={Colors.background1}
+            bgColor={Colors.primary2}
             color={Colors.secondary2}
           />
         ))}
       </View>
       <KSpacer h={20} />
-      <View
-        style={{
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-        }}
-      >
+      <View style={{ width: "100%", alignItems: "center" }}>
         <Text
           style={{
             fontSize: 16,
-            color: Colors.secondary2,
+            color: Colors.tertiary1,
             letterSpacing: 0.05,
             fontFamily: "Raleway-Medium",
           }}
@@ -96,24 +91,6 @@ export const KChatDuoStoryroom = ({
             }}
           >
             {openerUsername}
-          </Text>
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            color: Colors.secondary2,
-            letterSpacing: 0.05,
-            fontFamily:
-              joinerUsername !== "" ? "Raleway-Medium" : "Raleway-MediumItalic",
-          }}
-        >
-          {joinerUsername !== "" ? "with " : "waiting..."}
-          <Text
-            style={{
-              fontFamily: "Raleway-Bold",
-            }}
-          >
-            {joinerUsername !== "" && joinerUsername}
           </Text>
         </Text>
       </View>
