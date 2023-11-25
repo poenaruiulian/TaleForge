@@ -1,6 +1,6 @@
+import { Colors } from "react-native-ui-lib";
 import { KeyboardAvoidingView, ScrollView } from "react-native";
 import React from "react";
-import { Colors } from "react-native-ui-lib";
 
 interface KContainerProps {
   children: React.ReactNode;

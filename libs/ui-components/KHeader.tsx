@@ -1,10 +1,10 @@
+import { Colors } from "react-native-ui-lib";
 import {
   View,
   Image,
   TouchableOpacity,
   useWindowDimensions,
 } from "react-native";
-import { Colors } from "react-native-ui-lib";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";

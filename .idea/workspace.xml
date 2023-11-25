@@ -7,134 +7,13 @@
     <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/.bundle/config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/.prettierrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/.watchmanconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/Gemfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/Gemfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/__tests__/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/debug.keystore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/debug/java/com/customfontcli/ReactNativeFlipper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/java/com/customfontcli/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/java/com/customfontcli/MainApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/drawable/rn_edit_text_material.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/app/src/release/java/com/customfontcli/ReactNativeFlipper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/.xcode.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI.xcodeproj/xcshareddata/xcschemes/CustomFontCLI.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/AppDelegate.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/AppDelegate.mm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/Images.xcassets/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLI/main.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLITests/CustomFontCLITests.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/CustomFontCLITests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/Podfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/ios/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/metro.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CustomFontCLI/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/.bundle/config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/.prettierrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/.watchmanconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/Gemfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/Gemfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/__tests__/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/debug.keystore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/debug/java/com/taleforge/ReactNativeFlipper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/java/com/taleforge/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/java/com/taleforge/MainApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/drawable/rn_edit_text_material.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/app/src/release/java/com/taleforge/ReactNativeFlipper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/.xcode.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/Podfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge.xcodeproj/xcshareddata/xcschemes/TaleForge.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/AppDelegate.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/AppDelegate.mm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/Images.xcassets/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForge/main.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForgeTests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/ios/TaleForgeTests/TaleForgeTests.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/jest.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/metro.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TaleForge/yarn.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/screens/App/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/screens/App/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KTextButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KTextButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "TASK-11-handle-anon-to-user",
+    "git-widget-placeholder": "TASK-5-create-storyroom-modal",
     "last_opened_file_path": "/Users/poe/WebstormProjects/TaleForge/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
