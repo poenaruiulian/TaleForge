@@ -1,3 +1,4 @@
+import { Colors } from "react-native-ui-lib";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./libs/screens/Auth/Login";
@@ -23,8 +24,7 @@ import { faComments as fasComments } from "@fortawesome/free-solid-svg-icons/faC
 import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
 import { faChevronLeft as fasChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { library } from "@fortawesome/fontawesome-svg-core";
-
-import { Colors } from "react-native-ui-lib";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -174,8 +174,10 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     "Raleway-SemiBold": require("./assets/fonts/Raleway-SemiBold.ttf"),
     "Raleway-Medium": require("./assets/fonts/Raleway-Medium.ttf"),
+    "Raleway-MediumItalic": require("./assets/fonts/Raleway-MediumItalic.ttf"),
     "Raleway-Bold": require("./assets/fonts/Raleway-Bold.ttf"),
   });
+
   useEffect(() => {
     // AsyncStorage.clear();
 
@@ -195,13 +197,15 @@ export default function App() {
   return (
     // @ts-ignore
     <IsAnonContext.Provider value={{ isAnon, setIsAnon }}>
-      <NavigationContainer>
-        {isAnon
-          ? AppStackAnonymously()
-          : !isLoggedIn
-            ? AuthStack()
-            : AppStackNonAnonymously()}
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          {isAnon
+            ? AppStackAnonymously()
+            : !isLoggedIn
+              ? AuthStack()
+              : AppStackNonAnonymously()}
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </IsAnonContext.Provider>
   );
 }

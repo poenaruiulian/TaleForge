@@ -1,5 +1,6 @@
-import { TouchableOpacity, Text } from "react-native";
 import { Colors } from "react-native-ui-lib";
+
+import { TouchableOpacity, Text } from "react-native";
 
 export const KTextButton = ({
   label,
