@@ -19,7 +19,7 @@ export const KTag = ({
         <Text
           style={{
             fontSize: 14,
-            fontFamily: "Raleway-SemiBold",
+            fontFamily: "Raleway-Bold",
             color: color,
           }}
         >
