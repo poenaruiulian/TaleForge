@@ -1,4 +1,9 @@
-import { View, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  TouchableOpacity,
+  useWindowDimensions,
+} from "react-native";
 import { Colors } from "react-native-ui-lib";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -8,39 +13,35 @@ import { useNavigation } from "@react-navigation/native";
 export const KHeader = () => {
   const { top } = useSafeAreaInsets();
   const navigator = useNavigation();
+  const { height, width } = useWindowDimensions();
 
   return (
     <View
       style={{
         width: "100%",
-        height: top + 50,
+        height: top + width * 0.15,
         backgroundColor: Colors.tertiary1,
-        alignItems: "center",
+        justifyContent: "space-between",
+        alignItems: "flex-end",
+        paddingRight: 20,
+        paddingLeft: 10,
+        paddingVertical: 10,
+        flexDirection: "row",
         borderRadius: 10,
       }}
     >
-      <View
-        style={{
-          width: "95%",
-          height: "100%",
-          top: top,
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <Image
-          source={require("../../assets/images/logo_header.png")}
-          style={{ height: "35%", width: "50%" }}
+      <Image
+        source={require("../../assets/images/logo_header.png")}
+        style={{ height: 40, width: 200 }}
+      />
+      {/*@ts-ignore*/}
+      <TouchableOpacity onPress={() => navigator.navigate("Profile")}>
+        <FontAwesomeIcon
+          icon={fasUserCircle}
+          color={Colors.secondary1}
+          size={34}
         />
-        {/*@ts-ignore*/}
-        <TouchableOpacity onPress={() => navigator.navigate("Profile")}>
-          <FontAwesomeIcon
-            icon={fasUserCircle}
-            color={Colors.secondary1}
-            size={34}
-          />
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
