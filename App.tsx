@@ -21,6 +21,7 @@ import { faHome as fasHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { faComment as fasComment } from "@fortawesome/free-solid-svg-icons/faComment";
 import { faComments as fasComments } from "@fortawesome/free-solid-svg-icons/faComments";
 import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
+import { faChevronLeft as fasChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { Colors } from "react-native-ui-lib";
@@ -28,7 +29,7 @@ import { Colors } from "react-native-ui-lib";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-library.add(fasHome, fasComment, fasComments, fasUserCircle);
+library.add(fasHome, fasComment, fasComments, fasUserCircle, fasChevronLeft);
 
 const AuthStack = () => {
   return (
@@ -173,6 +174,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     "Raleway-SemiBold": require("./assets/fonts/Raleway-SemiBold.ttf"),
     "Raleway-Medium": require("./assets/fonts/Raleway-Medium.ttf"),
+    "Raleway-Bold": require("./assets/fonts/Raleway-Bold.ttf"),
   });
   useEffect(() => {
     // AsyncStorage.clear();
