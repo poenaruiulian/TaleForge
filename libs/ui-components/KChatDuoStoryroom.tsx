@@ -8,22 +8,10 @@ import React from "react";
 import { Colors } from "react-native-ui-lib";
 import { KTag } from "./KTag";
 import { KSpacer } from "./KSpacer";
-export const KChatDuoStoryroom = ({
-  title,
-  openerUsername,
-  joinerUsername,
-  numberOfDays,
-  numberOfCharacters,
-  listOfTags,
-}: {
-  title: string;
-  openerUsername: string;
-  joinerUsername: string;
-  numberOfDays: number;
-  numberOfCharacters: number;
-  listOfTags: string[];
-}) => {
+import { useNavigation } from "@react-navigation/native";
+export const KChatDuoStoryroom = ({ roomData }: { roomData: {} }) => {
   const { height, width } = useWindowDimensions();
+  const navigator = useNavigation();
 
   return (
     <TouchableOpacity
@@ -34,6 +22,8 @@ export const KChatDuoStoryroom = ({
         padding: 10,
         borderRadius: 10,
       }}
+      // @ts-ignore
+      onPress={() => navigator.navigate("ChatMessages", { roomData: roomData })}
     >
       <Text
         style={{
@@ -43,28 +33,37 @@ export const KChatDuoStoryroom = ({
           letterSpacing: 0.05,
         }}
       >
-        {title}
+        {roomData["title"]}
       </Text>
       <KSpacer h={10} />
       <View style={{ width: "100%", flexDirection: "row", gap: 10 }}>
         <KTag
-          label={`${numberOfDays} days`}
+          label={`${roomData["numberOfDays"]} days`}
           onPress={() => {}}
           bgColor={Colors.secondary2}
           color={Colors.tertiary1}
         />
         <KTag
-          label={`${numberOfCharacters}c`}
+          label={`${roomData["numberOfChars"]} chars`}
           onPress={() => {}}
           bgColor={Colors.secondary2}
           color={Colors.tertiary1}
         />
       </View>
       <KSpacer h={10} />
-      <View style={{ width: "100%", flexDirection: "row", gap: 10 }}>
-        {listOfTags.map((tag) => (
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          gap: 10,
+          flexWrap: "wrap",
+        }}
+      >
+        {Object.values(roomData["tagsList"]).map((tag) => (
           <KTag
+            // @ts-ignore
             key={tag}
+            // @ts-ignore
             label={tag}
             onPress={() => {}}
             bgColor={Colors.background1}
@@ -95,7 +94,7 @@ export const KChatDuoStoryroom = ({
               fontFamily: "Raleway-Bold",
             }}
           >
-            {openerUsername}
+            {roomData["openerUsername"]}
           </Text>
         </Text>
         <Text
@@ -104,16 +103,18 @@ export const KChatDuoStoryroom = ({
             color: Colors.secondary2,
             letterSpacing: 0.05,
             fontFamily:
-              joinerUsername !== "" ? "Raleway-Medium" : "Raleway-MediumItalic",
+              roomData["joinerUsername"] !== ""
+                ? "Raleway-Medium"
+                : "Raleway-MediumItalic",
           }}
         >
-          {joinerUsername !== "" ? "with " : "waiting..."}
+          {roomData["joinerUsername"] !== "" ? "with " : "waiting..."}
           <Text
             style={{
               fontFamily: "Raleway-Bold",
             }}
           >
-            {joinerUsername !== "" && joinerUsername}
+            {roomData["joinerUsername"] !== "" && roomData["joinerUsername"]}
           </Text>
         </Text>
       </View>

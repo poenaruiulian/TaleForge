@@ -25,8 +25,13 @@ export const handleRoomCreation = async ({
         numberOfDays,
         numberOfChars,
         tagsList,
-        listOfOpenerSentences: [firstSentence],
-        listOfJoinerSenteces: [""],
+        listOfMessages: [
+          {
+            message: firstSentence,
+            date: new Date().toString(),
+            userid: auth.currentUser.uid,
+          },
+        ],
         openerID: auth.currentUser.uid,
         joinerID: "",
         createdDate: new Date().toString(),

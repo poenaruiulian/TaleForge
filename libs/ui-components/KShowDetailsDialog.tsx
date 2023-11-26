@@ -183,8 +183,8 @@ export const KShowDetailsDialog = ({
               letterSpacing: 0.05,
             }}
           >
-            {roomDetails["listOfOpenerSentences"] !== undefined &&
-              Object.values(roomDetails["listOfOpenerSentences"])}
+            {roomDetails["listOfMessages"] !== undefined &&
+              Object.values(roomDetails["listOfMessages"])[0]["message"]}
           </Text>
         </View>
         <KSpacer h={20} />

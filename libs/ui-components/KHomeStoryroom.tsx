@@ -55,14 +55,21 @@ export const KHomeStoryroom = ({
           color={Colors.tertiary1}
         />
         <KTag
-          label={`${numberOfCharacters}c`}
+          label={`${numberOfCharacters} chars`}
           onPress={() => {}}
           bgColor={Colors.secondary2}
           color={Colors.tertiary1}
         />
       </View>
       <KSpacer h={10} />
-      <View style={{ width: "100%", flexDirection: "row", gap: 10 }}>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          gap: 10,
+          flexWrap: "wrap",
+        }}
+      >
         {listOfTags.map((tag) => (
           <KTag
             key={listOfTags.indexOf(tag)}

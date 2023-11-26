@@ -15,7 +15,7 @@ import { auth } from "./firebase/firebase";
 import { getIsAnonAsync } from "./firebase/handleAnonRegLog";
 import { IsAnonContext } from "./contexts/IsAnonContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFonts } from "expo-font";
+import { loadAsync, useFonts } from "expo-font";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 import { faHome as fasHome } from "@fortawesome/free-solid-svg-icons/faHome";
@@ -23,13 +23,22 @@ import { faComment as fasComment } from "@fortawesome/free-solid-svg-icons/faCom
 import { faComments as fasComments } from "@fortawesome/free-solid-svg-icons/faComments";
 import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
 import { faChevronLeft as fasChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
+import { faPaperPlane as fasPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { ChatMessages } from "./libs/screens/App/Chat-messages";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-library.add(fasHome, fasComment, fasComments, fasUserCircle, fasChevronLeft);
+library.add(
+  fasHome,
+  fasComment,
+  fasComments,
+  fasUserCircle,
+  fasChevronLeft,
+  fasPaperPlane,
+);
 
 const AuthStack = () => {
   return (
@@ -118,6 +127,11 @@ const AppStackNonAnonymously = () => {
         options={{ headerShown: false }}
         name={"Profile"}
         component={Profile}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name={"ChatMessages"}
+        component={ChatMessages}
       />
     </Stack.Navigator>
   );

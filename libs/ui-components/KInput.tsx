@@ -5,10 +5,12 @@ export const KInput = ({
   placeholder,
   value,
   onChangeText,
+  bgColor,
 }: {
   placeholder: string;
   value: string;
   onChangeText: (val: string) => void;
+  bgColor: string | undefined;
 }) => {
   return (
     <TextInput
@@ -21,7 +23,7 @@ export const KInput = ({
       placeholderTextColor={Colors.secondary2}
       style={{
         width: "90%",
-        backgroundColor: Colors.background1,
+        backgroundColor: bgColor === undefined ? Colors.background1 : bgColor,
         padding: 12,
         borderRadius: 10,
         fontSize: 16,
