@@ -31,7 +31,6 @@ export const KHeaderMessages = ({
         width: "100%",
         height: top + width * 0.2,
         backgroundColor: Colors.tertiary1,
-        borderRadius: 10,
         flexDirection: "row",
         justifyContent: "center",
         padding: 10,

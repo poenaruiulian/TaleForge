@@ -22,7 +22,6 @@ export const KHeaderAuxPages = ({ label }: { label: string }) => {
         height: top + width * 0.1,
         backgroundColor: Colors.tertiary1,
         alignItems: "flex-end",
-        borderRadius: 10,
         flexDirection: "row",
         justifyContent: "flex-start",
         padding: 10,

@@ -5,6 +5,7 @@ import { useHeaderHeight } from "react-native-screens/native-stack";
 
 interface KContainerProps {
   children: React.ReactNode;
+  bgColor?: string | undefined;
 }
 const KContainer = (props: KContainerProps) => {
   return (
@@ -12,14 +13,16 @@ const KContainer = (props: KContainerProps) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{
         flex: 1,
-        backgroundColor: Colors.background1,
+        backgroundColor:
+          props.bgColor === undefined ? Colors.background1 : props.bgColor,
       }}
     >
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
           alignItems: "center",
-          backgroundColor: Colors.background1,
+          backgroundColor:
+            props.bgColor === undefined ? Colors.background1 : props.bgColor,
         }}
       >
         {props.children}

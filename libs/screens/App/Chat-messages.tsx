@@ -23,12 +23,13 @@ export const ChatMessages = ({ route }) => {
     database,
     "story-rooms/" + route.params.roomData["storyroomID"],
   );
+  const userRef = ref(database, "users/" + auth.currentUser.uid);
 
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const { height } = useWindowDimensions();
   const [canSendMessage, setCanSendMessage] = useState(false);
-
+  const [chatColor, setChatColor] = useState("");
   useEffect(() => {
     onValue(roomsRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -49,6 +50,11 @@ export const ChatMessages = ({ route }) => {
         }
       }
     });
+    onValue(userRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setChatColor(snapshot.toJSON()["colorOfChat"]);
+      }
+    });
   }, []);
   return (
     <>
@@ -67,7 +73,7 @@ export const ChatMessages = ({ route }) => {
           )
         }
       />
-      <KContainer>
+      <KContainer bgColor={chatColor}>
         <KSpacer h={20} />
         {messages !== undefined &&
           messages.map((message) => {

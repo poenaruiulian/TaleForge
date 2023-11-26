@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import KContainer from "../../ui-components/KContainer";
-import { Alert, Image, Text, TouchableOpacity } from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import { KSpacer } from "../../ui-components/KSpacer";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase/firebase";
+import { auth, database } from "../../../firebase/firebase";
 import {
   getAnonIdAsync,
   handleAnon,
@@ -16,9 +16,14 @@ import { handleSignOutAnon } from "../../../firebase/handleSignOutAnon";
 import { KAuthInput } from "../../ui-components/KAuthInput";
 import { ApiConstants } from "../../../constants/ApiConstants";
 import { handleRegister } from "../../../firebase/handleRegister";
-import { Colors } from "react-native-ui-lib";
+import { ColorPicker, Colors } from "react-native-ui-lib";
 import { handleRegisterForAnon } from "../../../firebase/handleRegisterForAnon";
 import { KHeaderAuxPages } from "../../ui-components/KHeaderAuxPages";
+import { child, get, ref } from "firebase/database";
+import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { handleChangeColor } from "../../../firebase/handleChangeColor";
+
 function Profile() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -32,10 +37,22 @@ function Profile() {
   const { setIsAnon, isAnon } = useContext(IsAnonContext);
   const [anonUserId, setAnonUserId] = useState("");
   const navigator = useNavigation();
-
+  const [user, setUser] = useState({});
+  const [chatColor, setChatColor] = useState("");
   useEffect(() => {
-    const func = async () =>
-      await getAnonIdAsync().then((resp) => setAnonUserId(resp));
+    const func = async () => {
+      await getAnonIdAsync().then(async (resp) => setAnonUserId(resp));
+      if (!isAnon) {
+        const userDB = await get(
+          child(ref(database), "users/" + auth.currentUser.uid),
+        );
+
+        if (userDB.exists()) {
+          setUser(userDB.toJSON());
+          setChatColor(userDB.toJSON()["colorOfChat"]);
+        }
+      }
+    };
 
     setSecurityCode(
       (
@@ -203,6 +220,64 @@ function Profile() {
           </>
         ) : (
           <>
+            <KSpacer h={20} />
+            <FontAwesomeIcon
+              icon={fasUserCircle}
+              size={128}
+              color={Colors.secondary1}
+            />
+            <KSpacer h={20} />
+            <Text
+              style={{
+                fontSize: 24,
+                fontFamily: "Raleway-Medium",
+                color: Colors.secondary2,
+                letterSpacing: 0.05,
+              }}
+            >
+              {user["username"]}
+            </Text>
+            <KSpacer h={50} />
+            <View style={{ width: "90%", alignItems: "flex-start" }}>
+              <Text
+                style={{
+                  fontFamily: "Raleway-Medium",
+                  fontSize: 16,
+                  color: Colors.secondary2,
+                  letterSpacing: 0.05,
+                }}
+              >
+                Select the chat color:
+              </Text>
+              <KSpacer h={10} />
+              <View
+                style={{
+                  borderWidth: 2,
+                  borderColor: Colors.primary2,
+                  borderStyle: "dashed",
+                }}
+              >
+                <ColorPicker
+                  initialColor={chatColor}
+                  value={chatColor}
+                  onSubmit={(submittedColor) => {
+                    setChatColor(submittedColor);
+                    handleChangeColor({ color: submittedColor });
+                  }}
+                  onValueChange={(changedColor) => {
+                    setChatColor(changedColor);
+                    handleChangeColor({ color: changedColor });
+                  }}
+                  backgroundColor={chatColor}
+                  colors={[
+                    Colors.background2,
+                    Colors.background1,
+                    Colors.secondary2,
+                    Colors.secondary1,
+                  ]}
+                />
+              </View>
+            </View>
             <KSpacer h={50} />
             <KTextButton
               label={"Sign out"}
