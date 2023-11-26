@@ -10,6 +10,8 @@ web-build/
 .idea/
 .idea/*
 
+# OpenAI constants
+constants/OpenAIConstants.tsx
 
 # Native
 *.orig.*

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/firebase/handleRoomCreation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/handleRoomCreation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" afterDir="false" />
@@ -14,6 +16,8 @@
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KHomeStoryroom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KHomeStoryroom.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs/ui-components/KShowDetailsDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KShowDetailsDialog.tsx" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +57,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< Updated upstream
     "git-widget-placeholder": "TASK-7-chatroom",
+=======
+    "git-widget-placeholder": "TASK-9-bot-solo",
+>>>>>>> Stashed changes
     "last_opened_file_path": "/Users/poe/WebstormProjects/TaleForge/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

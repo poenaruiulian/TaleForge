@@ -40,7 +40,30 @@ export const handleRegisterForAnon = async ({
             let anonUserRef = ref(database, "users/" + anonUserId);
             set(anonUserRef, null).then(() =>
               // specify that the user is no longer anon
-              setIsAnonAsync({ isUserAnon: false }),
+              setIsAnonAsync({ isUserAnon: false }).then(async () => {
+                // here we replace all the ids in the messages of the solo room with the registered user one
+                const soloRoom = await get(
+                  child(ref(database), "solo-rooms/" + anonUser["soloRoomID"]),
+                );
+                const soloRoomRef = ref(
+                  database,
+                  "solo-rooms/" + anonUser["soloRoomID"],
+                );
+                if (soloRoom.exists()) {
+                  let data = soloRoom.toJSON();
+                  let aux = Object.values(soloRoom.toJSON()["listOfMessages"]);
+                  aux
+                    .filter((message) => message["userID"] !== "TaleForger")
+                    .forEach(
+                      (message) => (message["userID"] = auth.currentUser.uid),
+                    );
+                  data["listOfMessages"] = aux;
+
+                  set(soloRoomRef, data).then(() =>
+                    console.log("Modified the ids"),
+                  );
+                }
+              }),
             );
           });
         },

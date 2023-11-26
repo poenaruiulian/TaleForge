@@ -17,7 +17,7 @@ export const handleRoomCreation = async ({
 }) => {
   const user = await get(child(ref(database), "users/" + auth.currentUser.uid));
   if (user.exists()) {
-    await addDoc(collection(firestore, "strory-rooms"), {
+    await addDoc(collection(firestore, "story-rooms"), {
       "user-id": auth.currentUser.uid,
     }).then((documentRef) => {
       const data = {

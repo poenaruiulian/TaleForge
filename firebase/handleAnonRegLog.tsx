@@ -86,8 +86,7 @@ export const handleAnon = async () => {
           const botsRef = ref(database, "solo-rooms/" + documentRef.id);
           const botData = {
             soloRoomID: documentRef.id,
-            botsMessages: [0],
-            userMessages: [0],
+            listOfMessages: [0],
           };
           set(botsRef, botData).then(() =>
             console.log(

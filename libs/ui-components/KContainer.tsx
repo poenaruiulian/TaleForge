@@ -1,6 +1,7 @@
 import { Colors } from "react-native-ui-lib";
-import { KeyboardAvoidingView, ScrollView } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import React from "react";
+import { useHeaderHeight } from "react-native-screens/native-stack";
 
 interface KContainerProps {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ interface KContainerProps {
 const KContainer = (props: KContainerProps) => {
   return (
     <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={{
         flex: 1,
         backgroundColor: Colors.background1,
