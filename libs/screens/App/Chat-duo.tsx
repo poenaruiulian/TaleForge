@@ -61,7 +61,10 @@ function ChatDuo() {
           userRooms.map((room) => (
             // @ts-ignore
             <View style={{ with: "100%" }} key={room["storyroomID"]}>
-              <KChatDuoStoryroom roomData={room} />
+              <KChatDuoStoryroom
+                roomData={room}
+                isDisabled={room["joinerID"] === ""}
+              />
               <KSpacer h={10} />
             </View>
           ))
