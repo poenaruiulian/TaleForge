@@ -4,11 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="" />
+    <list default="true" id="3cc0b889-59cb-433c-b1ee-257352ff6535" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase/handleRoomCreation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/firebase/handleRoomCreation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Chat-duo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/screens/App/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/screens/App/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KChatDuoStoryroom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KChatDuoStoryroom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KHomeStoryroom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KHomeStoryroom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/ui-components/KShowDetailsDialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/libs/ui-components/KShowDetailsDialog.tsx" afterDir="false" />
+=======
+>>>>>>> Stashed changes
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,28 +43,44 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2XDa0fCLSbKEQbBpGX3ZwBhVUcq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/Users/poe/TaleForge",
+<<<<<<< Updated upstream
+    "git-widget-placeholder": "TASK-7-chatroom",
+=======
+    "git-widget-placeholder": "TASK-9-bot-solo",
+>>>>>>> Stashed changes
+    "last_opened_file_path": "/Users/poe/WebstormProjects/TaleForge/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/poe/TaleForge/node_modules/typescript/lib",
+    "prettierjs.PrettierConfiguration.Package": "/Users/poe/WebstormProjects/TaleForge/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/poe/WebstormProjects/TaleForge/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -58,6 +97,9 @@
       <workItem from="1698248632300" duration="601000" />
       <workItem from="1698490984970" duration="136000" />
       <workItem from="1699802623906" duration="831000" />
+      <workItem from="1700510756131" duration="357000" />
+      <workItem from="1700511117952" duration="2059000" />
+      <workItem from="1700853401616" duration="8972000" />
     </task>
     <servers />
   </component>
