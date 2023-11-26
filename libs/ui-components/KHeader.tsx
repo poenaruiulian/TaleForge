@@ -27,7 +27,6 @@ export const KHeader = () => {
         paddingLeft: 10,
         paddingVertical: 10,
         flexDirection: "row",
-        borderRadius: 10,
       }}
     >
       <Image

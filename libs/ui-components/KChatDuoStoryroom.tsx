@@ -9,12 +9,19 @@ import { Colors } from "react-native-ui-lib";
 import { KTag } from "./KTag";
 import { KSpacer } from "./KSpacer";
 import { useNavigation } from "@react-navigation/native";
-export const KChatDuoStoryroom = ({ roomData }: { roomData: {} }) => {
+export const KChatDuoStoryroom = ({
+  roomData,
+  isDisabled,
+}: {
+  roomData: {};
+  isDisabled: boolean;
+}) => {
   const { height, width } = useWindowDimensions();
   const navigator = useNavigation();
 
   return (
     <TouchableOpacity
+      disabled={isDisabled}
       style={{
         width: width * 0.9,
         alignItems: "flex-start",

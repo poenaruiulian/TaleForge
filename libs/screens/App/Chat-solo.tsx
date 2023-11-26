@@ -256,7 +256,7 @@ function ChatSolo() {
           </View>
           <View style={{ width: "15%", alignItems: "center" }}>
             <TouchableOpacity
-              disabled={message === ""}
+              disabled={message === "" || isLoading}
               onPress={() => {
                 if (auth.currentUser !== null) {
                   handleAddMessageSolo({
