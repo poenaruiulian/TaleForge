@@ -12,6 +12,7 @@ import { onValue, ref } from "firebase/database";
 import { KChatDuoStoryroom } from "../../ui-components/KChatDuoStoryroom";
 import { KHomeStoryroom } from "../../ui-components/KHomeStoryroom";
 import { KShowDetailsDialog } from "../../ui-components/KShowDetailsDialog";
+import { Colors } from "react-native-ui-lib";
 
 function Home() {
   const [userRooms, setUserRooms] = useState([]);
@@ -26,7 +27,8 @@ function Home() {
         for (let key in snapshot.toJSON()) {
           if (
             snapshot.toJSON()[key]["openerID"] !== auth.currentUser.uid &&
-            snapshot.toJSON()[key]["joinerID"] !== auth.currentUser.uid
+            snapshot.toJSON()[key]["joinerID"] !== auth.currentUser.uid &&
+            snapshot.toJSON()[key]["joinerID"] == ""
           ) {
             auxList.push(snapshot.toJSON()[key]);
           }
@@ -40,7 +42,18 @@ function Home() {
     <>
       <KHeader />
       <KContainer>
-        <KSpacer h={50} />
+        <KSpacer h={20} />
+        <Text
+          style={{
+            letterSpacing: 0.05,
+            fontFamily: "Raleway-SemiBold",
+            fontSize: 16,
+            color: Colors.secondary2,
+          }}
+        >
+          Available Storyrooms:
+        </Text>
+        <KSpacer h={20} />
         {
           // @ts-ignore
           userRooms.map((room) => (
