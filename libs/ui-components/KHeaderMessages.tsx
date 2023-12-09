@@ -93,7 +93,7 @@ export const KHeaderMessages = ({
               fontFamily: "Raleway-Medium",
             }}
           >
-            {numberOfDays}
+            {numberOfDays > 0 ? numberOfDays : "closed"}
           </Text>
         </View>
       </View>
