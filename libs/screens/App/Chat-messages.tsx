@@ -38,15 +38,29 @@ export const ChatMessages = ({ route }) => {
         let aux = Object.values(snapshot.toJSON()["listOfMessages"]);
         aux = aux.filter((m) => m["userid"] === auth.currentUser.uid);
         if (aux.length > 0) {
-          console.log(
-            dateDiffInDays(new Date(aux[aux.length - 1]["date"]), new Date()),
-          );
           setCanSendMessage(
             0 !==
-              dateDiffInDays(new Date(aux[aux.length - 1]["date"]), new Date()),
+              dateDiffInDays(
+                new Date(aux[aux.length - 1]["date"]),
+                new Date(),
+              ) &&
+              0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  ),
           );
         } else {
-          setCanSendMessage(aux.length === 0);
+          setCanSendMessage(
+            aux.length === 0 &&
+              0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  ),
+          );
         }
       }
     });
@@ -190,8 +204,25 @@ export const ChatMessages = ({ route }) => {
           <View style={{ width: "85%", alignItems: "center" }}>
             <KInput
               bgColor={Colors.tertiary1}
-              placeholder={""}
+              placeholder={
+                0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  )
+                  ? ""
+                  : "Room is closed"
+              }
               value={message}
+              editable={
+                0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  )
+              }
               onChangeText={(text) => {
                 if (text.length <= route.params.roomData["numberOfChars"]) {
                   setMessage(text);
@@ -201,7 +232,7 @@ export const ChatMessages = ({ route }) => {
           </View>
           <View style={{ width: "15%", alignItems: "center" }}>
             <TouchableOpacity
-              disabled={message === "" && !canSendMessage}
+              disabled={message === "" || !canSendMessage}
               onPress={() =>
                 handleSendMessage({
                   roomData: route.params.roomData,
