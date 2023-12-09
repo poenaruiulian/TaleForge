@@ -10,6 +10,7 @@ import { KCreateStoryroomDialog } from "../../ui-components/KCreateStoryroomDial
 import { ref, onValue } from "firebase/database";
 import { auth, database } from "../../../firebase/firebase";
 import { KChatDuoStoryroom } from "../../ui-components/KChatDuoStoryroom";
+import dateDiffInDays from "../../../helpers/dateDiffInDays";
 
 function ChatDuo() {
   const [showCreateStoryroomDialog, setShowCreateStoryroomDialog] =
@@ -30,7 +31,50 @@ function ChatDuo() {
             auxList.push(snapshot.toJSON()[key]);
           }
         }
-        setUserRooms(auxList);
+
+        let roomsClosed = auxList.filter(
+          (room) =>
+            0 >=
+            room["numberOfDays"] -
+              dateDiffInDays(new Date(room["joinedDate"]), new Date()),
+        );
+        let roomsWhereShouldSendMessage = auxList.filter((room) => {
+          const nrMessagesOfCurrent = Object.values(
+            room["listOfMessages"],
+          ).filter(
+            (el: { [x: string]: string }) =>
+              el["userid"] === auth.currentUser.uid,
+          );
+
+          const nrMessagesOfOther = Object.values(
+            room["listOfMessages"],
+          ).filter(
+            (el: { [x: string]: string }) =>
+              el["userid"] !== auth.currentUser.uid,
+          );
+
+          return (
+            nrMessagesOfCurrent < nrMessagesOfOther &&
+            0 <
+              room["numberOfDays"] -
+                dateDiffInDays(new Date(room["joinedDate"]), new Date())
+          );
+        });
+        let roomsNotJoined = auxList.filter(
+          (room) => room["joinedDate"] === "",
+        );
+        let roomsAllGood = auxList.filter(
+          (room) =>
+            !roomsClosed.includes(room) &&
+            !roomsNotJoined.includes(room) &&
+            !roomsWhereShouldSendMessage.includes(room),
+        );
+
+        setUserRooms(
+          roomsWhereShouldSendMessage.concat(
+            roomsAllGood.concat(roomsNotJoined.concat(roomsClosed)),
+          ),
+        );
       }
     });
   }, []);
@@ -64,6 +108,34 @@ function ChatDuo() {
               <KChatDuoStoryroom
                 roomData={room}
                 isDisabled={room["joinerID"] === ""}
+                isClosed={
+                  0 >=
+                  room["numberOfDays"] -
+                    dateDiffInDays(new Date(room["joinedDate"]), new Date())
+                }
+                shouldSendMessage={() => {
+                  const nrMessagesOfCurrent = Object.values(
+                    room["listOfMessages"],
+                  ).filter(
+                    (el: { [x: string]: string }) =>
+                      el["userid"] === auth.currentUser.uid,
+                  );
+
+                  const nrMessagesOfOther = Object.values(
+                    room["listOfMessages"],
+                  ).filter(
+                    (el: { [x: string]: string }) =>
+                      el["userid"] !== auth.currentUser.uid,
+                  );
+
+                  return (
+                    nrMessagesOfCurrent < nrMessagesOfOther &&
+                    0 <
+                      room["numberOfDays"] -
+                        dateDiffInDays(new Date(room["joinedDate"]), new Date())
+                  );
+                }}
+                didJoined={room["joinedDate"] !== ""}
               />
               <KSpacer h={10} />
             </View>

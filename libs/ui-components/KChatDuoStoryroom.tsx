@@ -9,12 +9,21 @@ import { Colors } from "react-native-ui-lib";
 import { KTag } from "./KTag";
 import { KSpacer } from "./KSpacer";
 import { useNavigation } from "@react-navigation/native";
+import { faHatWizard as fasHatWizard } from "@fortawesome/free-solid-svg-icons/faHatWizard";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+
 export const KChatDuoStoryroom = ({
   roomData,
   isDisabled,
+  isClosed,
+  shouldSendMessage,
+  didJoined,
 }: {
   roomData: {};
   isDisabled: boolean;
+  isClosed: boolean;
+  shouldSendMessage: () => boolean;
+  didJoined: boolean;
 }) => {
   const { height, width } = useWindowDimensions();
   const navigator = useNavigation();
@@ -22,26 +31,32 @@ export const KChatDuoStoryroom = ({
   return (
     <TouchableOpacity
       disabled={isDisabled}
+      // @ts-ignore
       style={{
         width: width * 0.9,
         alignItems: "flex-start",
-        backgroundColor: Colors.tertiary2,
+        backgroundColor: didJoined ? Colors.tertiary2 : Colors.grey40,
         padding: 10,
         borderRadius: 10,
       }}
       // @ts-ignore
       onPress={() => navigator.navigate("ChatMessages", { roomData: roomData })}
     >
-      <Text
-        style={{
-          fontSize: 16,
-          fontFamily: "Raleway-Bold",
-          color: Colors.secondary2,
-          letterSpacing: 0.05,
-        }}
-      >
-        {roomData["title"]}
-      </Text>
+      <View style={{ flexDirection: "row", gap: 10, alignItems: "center" }}>
+        {shouldSendMessage() && (
+          <FontAwesomeIcon icon={fasHatWizard} size={24} color={Colors.red40} />
+        )}
+        <Text
+          style={{
+            fontSize: 16,
+            fontFamily: "Raleway-Bold",
+            color: Colors.secondary2,
+            letterSpacing: 0.05,
+          }}
+        >
+          {roomData["title"]}
+        </Text>
+      </View>
       <KSpacer h={10} />
       <View style={{ width: "100%", flexDirection: "row", gap: 10 }}>
         <KTag
@@ -56,6 +71,14 @@ export const KChatDuoStoryroom = ({
           bgColor={Colors.secondary2}
           color={Colors.tertiary1}
         />
+        {isClosed && (
+          <KTag
+            label={"Closed"}
+            onPress={() => {}}
+            bgColor={Colors.red40}
+            color={Colors.tertiary1}
+          />
+        )}
       </View>
       <KSpacer h={10} />
       <View
