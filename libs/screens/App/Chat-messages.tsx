@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPaperPlane as fasPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
 import { faLock as fasLock } from "@fortawesome/free-solid-svg-icons/faLock";
 import { handleSendMessage } from "../../../firebase/handleSendMessage";
+import useKeyboard from "../../hooks/useKeyboard";
 
 export const ChatMessages = ({ route }) => {
   const roomsRef = ref(
@@ -30,6 +31,8 @@ export const ChatMessages = ({ route }) => {
   const { height } = useWindowDimensions();
   const [canSendMessage, setCanSendMessage] = useState(false);
   const [chatColor, setChatColor] = useState("");
+  const { keyboardHeight } = useKeyboard();
+
   useEffect(() => {
     onValue(roomsRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -92,7 +95,7 @@ export const ChatMessages = ({ route }) => {
         {messages !== undefined &&
           messages.map((message) => {
             return (
-              <View style={{ width: "90%" }}>
+              <View key={messages.indexOf(message)} style={{ width: "90%" }}>
                 {message["userid"] === auth.currentUser.uid && (
                   <View style={{ width: "100%", alignItems: "flex-end" }}>
                     <Text
@@ -179,6 +182,7 @@ export const ChatMessages = ({ route }) => {
           height: height * 0.12,
           backgroundColor: Colors.background1,
           padding: 10,
+          bottom: keyboardHeight,
         }}
       >
         <Text

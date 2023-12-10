@@ -51,9 +51,9 @@
 > Upon selecting any available story room, users gain access to chat with their designated friend. Engage in storytelling by exchanging one message per day until the countdown concludes. This gradual interaction allows for a captivating storytelling experience, where each message contributes to the evolving narrative between friends.
 
 <p align="center">
-<img src="./readme/mess1.png" width="530" height="500">
+<img src="./readme/mess1.png" width="560" height="500">
 <img src="./readme/mess2.png" width="230" height="500">
-<img src="./readme/mess3.png" width="530" height="500">
+<img src="./readme/mess3.png" width="560" height="500">
 </p>
 
 ### Profile

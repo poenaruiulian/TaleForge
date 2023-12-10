@@ -1,7 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { setIsAnonAsync } from "./handleAnonRegLog";
-
 export const handleLogin = ({
   email,
   password,
@@ -15,5 +14,5 @@ export const handleLogin = ({
         console.log("Succes log in of " + userCredential.user.uid),
       );
     })
-    .catch((err) => console.log(err));
+    .catch((err) => alert(err));
 };

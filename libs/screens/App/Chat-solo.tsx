@@ -19,13 +19,15 @@ import dateDiffInDays from "../../../helpers/dateDiffInDays";
 import { generateStoryline } from "../../../helpers/generateStoryline";
 import { handleAddMessageSolo } from "../../../firebase/handleAddMessageSolo";
 import { getAnonIdAsync } from "../../../firebase/handleAnonRegLog";
+import useKeyboard from "../../hooks/useKeyboard";
 function ChatSolo() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const { height } = useWindowDimensions();
   const [anonUserID, setAnonUserId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const { keyboardHeight } = useKeyboard();
+  const [user, setUser] = useState({});
   useEffect(() => {
     const func = async () => {
       if (auth.currentUser !== null) {
@@ -47,24 +49,23 @@ function ChatSolo() {
       } else {
         getAnonIdAsync().then(async (userId) => {
           setAnonUserId(userId);
-          let user = await get(child(ref(database), "users/" + userId));
+          let userDB = await get(child(ref(database), "users/" + userId));
 
-          if (user.exists()) {
-            let soloRef = ref(
-              database,
-              "solo-rooms/" + user.toJSON()["soloRoomID"],
-            );
-            onValue(soloRef, (snapshot) => {
-              if (snapshot.exists()) {
-                setMessages(Object.values(snapshot.toJSON()["listOfMessages"]));
-              }
-            });
+          if (userDB.exists()) {
+            setUser(userDB);
           }
         });
       }
     };
 
     func();
+
+    let soloRef = ref(database, "solo-rooms/" + user["soloRoomID"]);
+    onValue(soloRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setMessages(Object.values(snapshot.toJSON()["listOfMessages"]));
+      }
+    });
   }, []);
 
   return (
@@ -75,7 +76,7 @@ function ChatSolo() {
         {messages !== undefined &&
           messages.slice(1).map((message) => {
             return (
-              <View style={{ width: "90%" }}>
+              <View key={messages.indexOf(message)} style={{ width: "90%" }}>
                 {auth.currentUser !== null &&
                   message["userID"] === auth.currentUser.uid && (
                     <View style={{ width: "100%", alignItems: "flex-end" }}>
@@ -231,9 +232,10 @@ function ChatSolo() {
       </KContainer>
       <View
         style={{
-          height: height * 0.08,
+          height: height * 0.1,
           backgroundColor: Colors.background1,
           padding: 10,
+          bottom: keyboardHeight * 0.75,
         }}
       >
         <View

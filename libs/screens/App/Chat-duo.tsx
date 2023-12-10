@@ -135,7 +135,7 @@ function ChatDuo() {
           userRooms.length > 0 ? (
             userRooms.map((room) => (
               // @ts-ignore
-              <View style={{ with: "100%" }} key={room["storyroomID"]}>
+              <View key={userRooms.indexOf(room)} style={{ with: "100%" }}>
                 <KChatDuoStoryroom
                   roomData={room}
                   isDisabled={room["joinerID"] === ""}

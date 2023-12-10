@@ -47,7 +47,7 @@ function Profile() {
   const [anonUserId, setAnonUserId] = useState("");
   const navigator = useNavigation();
   const [user, setUser] = useState({});
-  const [chatColor, setChatColor] = useState("");
+  const [chatColor, setChatColor] = useState("#fff");
 
   const [usernameToEdit, setUsernameToEdit] = useState("");
 
