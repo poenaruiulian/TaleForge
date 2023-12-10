@@ -31,12 +31,20 @@ function ChatSolo() {
   useEffect(() => {
     const func = async () => {
       if (auth.currentUser !== null) {
-        let userDB = await get(
+        let user = await get(
           child(ref(database), "users/" + auth.currentUser.uid),
         );
 
-        if (userDB.exists()) {
-          setUser(userDB);
+        if (user.exists()) {
+          let soloRef = ref(
+            database,
+            "solo-rooms/" + user.toJSON()["soloRoomID"],
+          );
+          onValue(soloRef, (snapshot) => {
+            if (snapshot.exists()) {
+              setMessages(Object.values(snapshot.toJSON()["listOfMessages"]));
+            }
+          });
         }
       } else {
         getAnonIdAsync().then(async (userId) => {
