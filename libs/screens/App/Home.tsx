@@ -13,6 +13,7 @@ import { KChatDuoStoryroom } from "../../ui-components/KChatDuoStoryroom";
 import { KHomeStoryroom } from "../../ui-components/KHomeStoryroom";
 import { KShowDetailsDialog } from "../../ui-components/KShowDetailsDialog";
 import { Colors } from "react-native-ui-lib";
+import LottieView from "lottie-react-native";
 
 function Home() {
   const [userRooms, setUserRooms] = useState([]);
@@ -54,7 +55,7 @@ function Home() {
           Available Storyrooms:
         </Text>
         <KSpacer h={20} />
-        {
+        {userRooms.length > 0 ? (
           // @ts-ignore
           userRooms.map((room) => (
             // @ts-ignore
@@ -74,7 +75,28 @@ function Home() {
               <KSpacer h={10} />
             </View>
           ))
-        }
+        ) : (
+          <>
+            <LottieView
+              source={require("../../../assets/lotties/lottie1.json")}
+              autoPlay
+              // loop={false}
+              style={{
+                height: "52%",
+                width: "100%",
+              }}
+            />
+            <Text
+              style={{
+                fontSize: 20,
+                fontFamily: "Raleway-SemiBold",
+                color: Colors.secondary2,
+              }}
+            >
+              No rooms found
+            </Text>
+          </>
+        )}
       </KContainer>
 
       <KShowDetailsDialog
