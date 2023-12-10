@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPaperPlane as fasPaperPlane } from "@fortawesome/free-solid-svg-icons/faPaperPlane";
 import { faLock as fasLock } from "@fortawesome/free-solid-svg-icons/faLock";
 import { handleSendMessage } from "../../../firebase/handleSendMessage";
+import useKeyboard from "../../hooks/useKeyboard";
 
 export const ChatMessages = ({ route }) => {
   const roomsRef = ref(
@@ -30,6 +31,8 @@ export const ChatMessages = ({ route }) => {
   const { height } = useWindowDimensions();
   const [canSendMessage, setCanSendMessage] = useState(false);
   const [chatColor, setChatColor] = useState("");
+  const { keyboardHeight } = useKeyboard();
+
   useEffect(() => {
     onValue(roomsRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -38,15 +41,29 @@ export const ChatMessages = ({ route }) => {
         let aux = Object.values(snapshot.toJSON()["listOfMessages"]);
         aux = aux.filter((m) => m["userid"] === auth.currentUser.uid);
         if (aux.length > 0) {
-          console.log(
-            dateDiffInDays(new Date(aux[aux.length - 1]["date"]), new Date()),
-          );
           setCanSendMessage(
             0 !==
-              dateDiffInDays(new Date(aux[aux.length - 1]["date"]), new Date()),
+              dateDiffInDays(
+                new Date(aux[aux.length - 1]["date"]),
+                new Date(),
+              ) &&
+              0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  ),
           );
         } else {
-          setCanSendMessage(aux.length === 0);
+          setCanSendMessage(
+            aux.length === 0 &&
+              0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  ),
+          );
         }
       }
     });
@@ -78,7 +95,7 @@ export const ChatMessages = ({ route }) => {
         {messages !== undefined &&
           messages.map((message) => {
             return (
-              <View style={{ width: "90%" }}>
+              <View key={messages.indexOf(message)} style={{ width: "90%" }}>
                 {message["userid"] === auth.currentUser.uid && (
                   <View style={{ width: "100%", alignItems: "flex-end" }}>
                     <Text
@@ -165,6 +182,7 @@ export const ChatMessages = ({ route }) => {
           height: height * 0.12,
           backgroundColor: Colors.background1,
           padding: 10,
+          bottom: keyboardHeight,
         }}
       >
         <Text
@@ -190,8 +208,25 @@ export const ChatMessages = ({ route }) => {
           <View style={{ width: "85%", alignItems: "center" }}>
             <KInput
               bgColor={Colors.tertiary1}
-              placeholder={""}
+              placeholder={
+                0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  )
+                  ? ""
+                  : "Room is closed"
+              }
               value={message}
+              editable={
+                0 <
+                route.params.roomData["numberOfDays"] -
+                  dateDiffInDays(
+                    new Date(route.params.roomData["joinedDate"]),
+                    new Date(),
+                  )
+              }
               onChangeText={(text) => {
                 if (text.length <= route.params.roomData["numberOfChars"]) {
                   setMessage(text);
@@ -201,7 +236,7 @@ export const ChatMessages = ({ route }) => {
           </View>
           <View style={{ width: "15%", alignItems: "center" }}>
             <TouchableOpacity
-              disabled={message === "" && !canSendMessage}
+              disabled={message === "" || !canSendMessage}
               onPress={() =>
                 handleSendMessage({
                   roomData: route.params.roomData,

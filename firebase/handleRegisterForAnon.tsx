@@ -34,6 +34,7 @@ export const handleRegisterForAnon = async ({
             listOfStoryroomsFinished: [0],
             dateOfAccount: anonUser["dateOfAccount"],
             dateOfJoining: new Date().toString(),
+            photo: "",
           };
 
           set(usersRef, userData).then(() => {

@@ -6,11 +6,13 @@ export const KInput = ({
   value,
   onChangeText,
   bgColor,
+  editable,
 }: {
   placeholder: string;
   value: string;
   onChangeText: (val: string) => void;
-  bgColor: string | undefined;
+  bgColor?: string | undefined;
+  editable?: boolean | undefined;
 }) => {
   return (
     <TextInput
@@ -21,6 +23,7 @@ export const KInput = ({
       autoCorrect={false}
       textAlign="center"
       placeholderTextColor={Colors.secondary2}
+      editable={editable !== undefined ? editable : true}
       style={{
         width: "90%",
         backgroundColor: bgColor === undefined ? Colors.background1 : bgColor,

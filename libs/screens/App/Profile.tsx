@@ -1,6 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import KContainer from "../../ui-components/KContainer";
-import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { KSpacer } from "../../ui-components/KSpacer";
 import { useNavigation } from "@react-navigation/native";
 import { signOut } from "firebase/auth";
@@ -15,14 +22,16 @@ import { KTextButton } from "../../ui-components/KTextButton";
 import { handleSignOutAnon } from "../../../firebase/handleSignOutAnon";
 import { KAuthInput } from "../../ui-components/KAuthInput";
 import { ApiConstants } from "../../../constants/ApiConstants";
-import { handleRegister } from "../../../firebase/handleRegister";
 import { ColorPicker, Colors } from "react-native-ui-lib";
 import { handleRegisterForAnon } from "../../../firebase/handleRegisterForAnon";
 import { KHeaderAuxPages } from "../../ui-components/KHeaderAuxPages";
-import { child, get, ref } from "firebase/database";
+import { child, get, onValue, ref } from "firebase/database";
 import { faUserCircle as fasUserCircle } from "@fortawesome/free-solid-svg-icons/faUserCircle";
+import { faEdit as fasEdit } from "@fortawesome/free-solid-svg-icons/faEdit";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { handleChangeColor } from "../../../firebase/handleChangeColor";
+import { handleEditName } from "../../../firebase/handleEditName";
+import { handleChangePicture } from "../../../firebase/handleChangePicture";
 
 function Profile() {
   const [username, setUsername] = useState("");
@@ -38,20 +47,13 @@ function Profile() {
   const [anonUserId, setAnonUserId] = useState("");
   const navigator = useNavigation();
   const [user, setUser] = useState({});
-  const [chatColor, setChatColor] = useState("");
+  const [chatColor, setChatColor] = useState("#fff");
+
+  const [usernameToEdit, setUsernameToEdit] = useState("");
+
   useEffect(() => {
     const func = async () => {
       await getAnonIdAsync().then(async (resp) => setAnonUserId(resp));
-      if (!isAnon) {
-        const userDB = await get(
-          child(ref(database), "users/" + auth.currentUser.uid),
-        );
-
-        if (userDB.exists()) {
-          setUser(userDB.toJSON());
-          setChatColor(userDB.toJSON()["colorOfChat"]);
-        }
-      }
     };
 
     setSecurityCode(
@@ -64,6 +66,17 @@ function Profile() {
     );
 
     func();
+    if (!isAnon) {
+      const userRef = ref(database, "users/" + auth.currentUser.uid);
+
+      onValue(userRef, (userDB) => {
+        if (userDB.exists()) {
+          setUser(userDB.toJSON());
+          setChatColor(userDB.toJSON()["colorOfChat"]);
+          setUsernameToEdit(userDB.toJSON()["username"]);
+        }
+      });
+    }
   }, []);
   return (
     // @ts-ignore
@@ -219,24 +232,90 @@ function Profile() {
             )}
           </>
         ) : (
+          // code for when user is not anon
           <>
             <KSpacer h={20} />
-            <FontAwesomeIcon
-              icon={fasUserCircle}
-              size={128}
-              color={Colors.secondary1}
-            />
-            <KSpacer h={20} />
-            <Text
-              style={{
-                fontSize: 24,
-                fontFamily: "Raleway-Medium",
-                color: Colors.secondary2,
-                letterSpacing: 0.05,
-              }}
+            <View style={{ width: 128 }}>
+              {user["photo"] == "" ? (
+                <FontAwesomeIcon
+                  icon={fasUserCircle}
+                  size={128}
+                  color={Colors.secondary2}
+                />
+              ) : (
+                <Image
+                  source={{ uri: user["photo"] }}
+                  style={{
+                    height: 128,
+                    width: 128,
+                    borderRadius: 70,
+                  }}
+                />
+              )}
+              <TouchableOpacity
+                onPress={() => handleChangePicture({ user })}
+                style={{
+                  width: "100%",
+                  alignItems: "flex-end",
+                  top: -30,
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={fasEdit}
+                  size={32}
+                  color={Colors.primary2}
+                />
+              </TouchableOpacity>
+            </View>
+            <KSpacer h={10} />
+            <View
+              style={{ flexDirection: "row", gap: 10, alignItems: "center" }}
             >
-              {user["username"]}
-            </Text>
+              <TextInput
+                value={usernameToEdit}
+                style={{
+                  fontSize: 24,
+                  fontFamily: "Raleway-Medium",
+                  color:
+                    usernameToEdit != user["username"]
+                      ? Colors.red30
+                      : Colors.secondary2,
+                  letterSpacing: 0.05,
+                }}
+                onChangeText={(text) => setUsernameToEdit(text)}
+                autoCorrect={false}
+                autoComplete={"off"}
+              />
+              <TouchableOpacity
+                onPress={() =>
+                  Alert.alert(
+                    "Changing name",
+                    "Are you sure you want to change your username?",
+                    [
+                      {
+                        text: "Cancel",
+                        style: "cancel",
+                      },
+                      {
+                        text: "Yes",
+                        style: "default",
+                        onPress: () =>
+                          handleEditName({
+                            user,
+                            newName: usernameToEdit,
+                          }),
+                      },
+                    ],
+                  )
+                }
+              >
+                <FontAwesomeIcon
+                  icon={fasEdit}
+                  size={24}
+                  color={Colors.secondary2}
+                />
+              </TouchableOpacity>
+            </View>
             <KSpacer h={50} />
             <View style={{ width: "90%", alignItems: "flex-start" }}>
               <Text

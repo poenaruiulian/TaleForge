@@ -7,6 +7,7 @@ import { KSpacer } from "./KSpacer";
 import { KTag } from "./KTag";
 import { KTextButton } from "./KTextButton";
 import { handleJoinRoom } from "../../firebase/handleJoinRoom";
+import { useNavigation } from "@react-navigation/native";
 
 export const KShowDetailsDialog = ({
   isVisible,
@@ -21,6 +22,7 @@ export const KShowDetailsDialog = ({
 }) => {
   const { height, width } = useWindowDimensions();
   const { bottom } = useSafeAreaInsets();
+  const navigator = useNavigation();
 
   return (
     <Dialog
@@ -200,6 +202,9 @@ export const KShowDetailsDialog = ({
               handleJoinRoom({ roomData: roomDetails })
                 .then(onDismiss)
                 .then(setIsVisible)
+                // @ts-ignore
+
+                .then(() => navigator.navigate("ChatDuo"))
             }
           />
         </View>

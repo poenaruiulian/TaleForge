@@ -36,6 +36,7 @@ export const handleRegister = async ({
             listOfStoryroomsFinished: [0],
             dateOfAccount: new Date().toString(),
             dateOfJoining: new Date().toString(),
+            photo: "",
           };
           // and then we sent the user data in RTDB
           set(usersRef, userData).then(() =>
