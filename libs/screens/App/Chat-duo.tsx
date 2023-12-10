@@ -1,7 +1,7 @@
 import { Colors, Dialog, PanningProvider } from "react-native-ui-lib";
 import React, { useEffect, useState } from "react";
 import KContainer from "../../ui-components/KContainer";
-import { Text, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { KSpacer } from "../../ui-components/KSpacer";
 import { useNavigation } from "@react-navigation/native";
 import { KHeader } from "../../ui-components/KHeader";
@@ -12,6 +12,8 @@ import { auth, database } from "../../../firebase/firebase";
 import { KChatDuoStoryroom } from "../../ui-components/KChatDuoStoryroom";
 import dateDiffInDays from "../../../helpers/dateDiffInDays";
 import LottieView from "lottie-react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faCircleInfo as fasCircleInfo } from "@fortawesome/free-solid-svg-icons/faCircleInfo";
 
 function ChatDuo() {
   const [showCreateStoryroomDialog, setShowCreateStoryroomDialog] =
@@ -90,16 +92,43 @@ function ChatDuo() {
           onPress={() => setShowCreateStoryroomDialog(true)}
         />
         <KSpacer h={20} />
-        <Text
-          style={{
-            letterSpacing: 0.05,
-            fontFamily: "Raleway-SemiBold",
-            fontSize: 16,
-            color: Colors.secondary2,
-          }}
-        >
-          Your Storyrooms:
-        </Text>
+        <View style={{ alignItems: "center", flexDirection: "row", gap: 10 }}>
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert(
+                "Your Storyrooms",
+                "Below all you story rooms are available, opened and closed. Each storyroom have a specific design depending on its current state:\n\n" +
+                  " - waiting for you message (has a wizard hat in front of the title)\n" +
+                  " - waiting for someone to join (the grey ones)\n" +
+                  " - closed ones (the ones with 'closed' tag)\n" +
+                  " - the rest (the rest are the rooms where all is good)\n\n" +
+                  "Above you can find a button that by pressing will pop a dialog meant to create a new room which will be displayed on other users home screen.",
+                [
+                  {
+                    text: "Ok",
+                    style: "default",
+                  },
+                ],
+              )
+            }
+          >
+            <FontAwesomeIcon
+              icon={fasCircleInfo}
+              size={16}
+              color={Colors.secondary2}
+            />
+          </TouchableOpacity>
+          <Text
+            style={{
+              letterSpacing: 0.05,
+              fontFamily: "Raleway-SemiBold",
+              fontSize: 16,
+              color: Colors.secondary2,
+            }}
+          >
+            Your Storyrooms:
+          </Text>
+        </View>
         <KSpacer h={20} />
         {
           // @ts-ignore

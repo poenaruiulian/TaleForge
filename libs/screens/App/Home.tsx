@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import KContainer from "../../ui-components/KContainer";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
 import { auth, database } from "../../../firebase/firebase";
 import { KSpacer } from "../../ui-components/KSpacer";
 import { KHeader } from "../../ui-components/KHeader";
@@ -10,6 +10,7 @@ import { KShowDetailsDialog } from "../../ui-components/KShowDetailsDialog";
 import { Colors } from "react-native-ui-lib";
 import LottieView from "lottie-react-native";
 import { faFilter as fasFilter } from "@fortawesome/free-solid-svg-icons/faFilter";
+import { faCircleInfo as fasCircleInfo } from "@fortawesome/free-solid-svg-icons/faCircleInfo";
 import { faFilterCircleXmark as fasFilterCircleXmark } from "@fortawesome/free-solid-svg-icons/faFilterCircleXmark";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { KFilterDialog } from "../../ui-components/KFilterDialog";
@@ -99,6 +100,28 @@ function Home() {
         <KSpacer h={20} />
         {/*@ts-ignore*/}
         <View style={{ flexDirection: "row", alignItems: "center", gap: "10" }}>
+          <TouchableOpacity
+            onPress={() =>
+              Alert.alert(
+                "Available Storyrooms",
+                "If there are any available, below you will find the available storyrooms.\n\n" +
+                  "By clicking on any of them a dialog will pop up, where all the details of the room are displayed with a button to join the room.\n\n" +
+                  "In the left of the 'Available Storyrooms' you can see a filter icon, which will open a dialog where you can filter the available rooms to you choice.",
+                [
+                  {
+                    text: "Ok",
+                    style: "default",
+                  },
+                ],
+              )
+            }
+          >
+            <FontAwesomeIcon
+              icon={fasCircleInfo}
+              size={16}
+              color={Colors.secondary2}
+            />
+          </TouchableOpacity>
           <Text
             style={{
               letterSpacing: 0.05,
