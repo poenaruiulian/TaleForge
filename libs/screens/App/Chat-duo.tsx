@@ -152,10 +152,11 @@ function ChatDuo() {
                 autoPlay
                 // loop={false}
                 style={{
-                  height: "52%",
+                  height: "40%",
                   width: "100%",
                 }}
               />
+              <KSpacer h={90} />
               <Text
                 style={{
                   fontSize: 20,
