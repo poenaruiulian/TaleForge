@@ -21,10 +21,11 @@
 
 ### Home
 
-> On the home page, users gain access to various available story rooms, providing the option to join any of them
+> On the home page, users gain access to various available story rooms, providing the option to join any of them and filter them.
 
 <p align="center">
 <img src="./readme/home2.png" width="230" height="500">
+<img src="./readme/home3.png" width="230" height="500">
 <img src="./readme/home1.png" width="230" height="500">
 </p>
 
@@ -39,6 +40,12 @@
 ### Duo-Chat
 
 > In the Duo-Chat feature, users can conveniently access all ongoing chats they're part of, while also having the option to create new ones for others to join. 
+> 
+> Every story room has a different design depending on the state of the room:
+> - a wizard hat before the title represents the need of the user to send a message
+> - the background grey represents the fact that the rooms has not been yet joined by another user
+> - the closed tag represents that the number of days set at the beginning has finished
+> - the simple designed room means that everything is good
 
 <p align="center">
 <img src="./readme/duo_chat.png" width="230" height="500">
@@ -50,6 +57,7 @@
 
 > Upon selecting any available story room, users gain access to chat with their designated friend. Engage in storytelling by exchanging one message per day until the countdown concludes. This gradual interaction allows for a captivating storytelling experience, where each message contributes to the evolving narrative between friends.
 
+
 <p align="center">
 <img src="./readme/mess1.png" width="560" height="500">
 <img src="./readme/mess2.png" width="230" height="500">
@@ -58,7 +66,7 @@
 
 ### Profile
 
->Presently, on the profile page, users can access a color picker feature that enables them to personalize the chat by changing its color. Tailor the chat interface to your preferences by selecting from a spectrum of colors, adding a touch of individuality to your storytelling experience!
+>Presently, on the profile page, users can access a color picker feature that enables them to personalize the chat by changing its color and change their profile picture / username.
 
 <p align="center">
 <img src="./readme/profile1.png" width="230" height="500">
