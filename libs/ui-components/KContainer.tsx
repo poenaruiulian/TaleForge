@@ -2,6 +2,7 @@ import { Colors } from "react-native-ui-lib";
 import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import React from "react";
 import { useHeaderHeight } from "react-native-screens/native-stack";
+import useKeyboard from "../hooks/useKeyboard";
 
 interface KContainerProps {
   children: React.ReactNode;

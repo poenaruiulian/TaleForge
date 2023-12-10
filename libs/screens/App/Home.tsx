@@ -146,7 +146,7 @@ function Home() {
 
           userRooms.map((room) => (
             // @ts-ignore
-            <View style={{ with: "100%" }}>
+            <View key={userRooms.indexOf(room)} style={{ with: "100%" }}>
               <KHomeStoryroom
                 onPress={() => {
                   setIsVisibleRoomDialog(true);

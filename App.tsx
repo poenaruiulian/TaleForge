@@ -210,16 +210,18 @@ export default function App() {
 
   return (
     // @ts-ignore
-    <IsAnonContext.Provider value={{ isAnon, setIsAnon }}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
-          {isAnon
-            ? AppStackAnonymously()
-            : !isLoggedIn
-              ? AuthStack()
-              : AppStackNonAnonymously()}
-        </NavigationContainer>
-      </GestureHandlerRootView>
-    </IsAnonContext.Provider>
+    fontsLoaded && (
+      <IsAnonContext.Provider value={{ isAnon, setIsAnon }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <NavigationContainer>
+            {isAnon
+              ? AppStackAnonymously()
+              : !isLoggedIn
+                ? AuthStack()
+                : AppStackNonAnonymously()}
+          </NavigationContainer>
+        </GestureHandlerRootView>
+      </IsAnonContext.Provider>
+    )
   );
 }
