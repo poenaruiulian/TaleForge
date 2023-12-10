@@ -22,7 +22,6 @@ import { KTextButton } from "../../ui-components/KTextButton";
 import { handleSignOutAnon } from "../../../firebase/handleSignOutAnon";
 import { KAuthInput } from "../../ui-components/KAuthInput";
 import { ApiConstants } from "../../../constants/ApiConstants";
-import { handleRegister } from "../../../firebase/handleRegister";
 import { ColorPicker, Colors } from "react-native-ui-lib";
 import { handleRegisterForAnon } from "../../../firebase/handleRegisterForAnon";
 import { KHeaderAuxPages } from "../../ui-components/KHeaderAuxPages";
