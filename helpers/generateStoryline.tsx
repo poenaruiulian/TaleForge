@@ -9,8 +9,10 @@ export const generateStoryline = async ({
     const response = await axios.post(
       OpenAIConstants.apiURL,
       {
-        prompt: OpenAIConstants.prompt + inputText,
-        max_tokens: 50,
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "user", content: OpenAIConstants.prompt + " " + inputText },
+        ],
       },
       {
         headers: {
@@ -19,7 +21,7 @@ export const generateStoryline = async ({
         },
       },
     );
-    return response.data.choices[0].text.trim();
+    return response.data.choices[0].message.content;
   } catch (error) {
     console.error("Error generating story line:", error);
     throw error;
